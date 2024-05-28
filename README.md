@@ -12,7 +12,10 @@ Start using Tahwil today to streamline your currency conversion needs!
 ## Installation
 To install Tahwil, follow these steps:
 1. Ensure you have Rust installed on your system. If not, you can install it from [Rust's official website](https://www.rust-lang.org/tools/install).
-2. ```bash cargo install --git https://github.com/Phant80m/Tahwil/ ```
+2. then it's simple as:
+```bash
+cargo install --git https://github.com/Phant80m/Tahwil/
+```
 
 ## Usage 
 ```bash
