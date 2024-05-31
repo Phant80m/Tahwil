@@ -6,7 +6,7 @@ Tahwil is a simple currency converter tool designed to help users convert betwee
 
   * Simple to Use: Tahwil provides a straightforward command-line interface, making it easy to convert currencies.
   * Fast Conversion: With its integration with the ExchangeRate-API, Tahwil delivers quick and accurate conversion results.
-  * Flexible Formatting: You can choose to view the converted amounts in either human-readable format or real numbers, depending on your preference.
+  * Flexible Formatting: You can choose to view the converted amounts in either human-readable format or raw numbers, depending on your preference.
 
 Start using Tahwil today to streamline your currency conversion needs!
 ## Installation
@@ -30,7 +30,7 @@ Output:
 20.00 AUD = 13.30 USD
 ```
 
-the `--real` or `-r` flag displays the number as a real number, and not the pretty number like `10M` which is default
+the `--raw or `-r` flag displays the number as a raw number, and not the rounded number like `10M` which is default
 
 #### You can also use numbers like `10k` or `10m` eg,
 example:
@@ -41,7 +41,7 @@ Output:
 ```bash
 10.50M AUD = 5.47M GBP
 ```
-or with `--real` 
+or with `--raw` 
 ```bash
 10500000 AUD = 5470500 GBP
 ```

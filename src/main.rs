@@ -16,7 +16,7 @@ struct Cli {
     amount: String,
     /// toggle between human readable and real numbers
     #[arg(short, long)]
-    real: bool,
+    raw: bool,
 }
 
 use serde::Deserialize;
@@ -135,7 +135,7 @@ fn main() -> Result<()> {
     let output = convert.clone().convert().into_diagnostic()?;
 
     // show real numbers if 'real' arg is present
-    let (input, output) = if cli.real {
+    let (input, output) = if cli.raw {
         (parsed_amount.to_string(), output.to_string())
     } else {
         // otherwise humanify output (default)
@@ -152,10 +152,10 @@ fn main() -> Result<()> {
 
     println!(
         "{} {} = {} {}",
-        // pretty input
+        // pretty input / raw
         input,
         &convert.input_currency.to_uppercase().bold(),
-        // pretty output
+        // pretty output / raw
         output,
         &convert.output_currency.bold(),
     );
