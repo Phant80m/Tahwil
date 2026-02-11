@@ -52,6 +52,10 @@ impl Convert {
     fn convert(self) -> Result<f64, ConvertError> {
         let currency = self.deserialise()?;
 
+        if self.input_currency.len() > 3 as usize {
+            return Err(ConvertError::UnknownCurrency(self.input_currency));
+        };
+
         match currency.rates.get(&self.output_currency) {
             Some(currency) => {
                 let result = currency * self.amount;
@@ -62,7 +66,7 @@ impl Convert {
     }
     fn request(&self) -> Result<String, ureq::Error> {
         let bar = ProgressBar::new_spinner();
-        bar.enable_steady_tick(Duration::from_millis(100));
+        bar.enable_steady_tick(Duration::from_millis(10));
         bar.set_message("sending request to api...");
         let url = format!(
             "https://api.exchangerate-api.com/v4/latest/{}",
